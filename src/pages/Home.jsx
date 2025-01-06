@@ -10,13 +10,16 @@ import About from '../components/About';
 import TopBrands from '../components/Brand';
 import UpcomingEvents from '../Upcomming';
 import LottieExample from '../components/Sidebar';
+import Services from '../components/Services';
 
 const Home = () => {
+      const [loading, setLoading] = useState(true);
 
     return (
         <div className="min-h-screen flex flex-col">
             <Hero />
-            <Products />
+            {!loading &&<Services/>}
+            <Products loading={loading} setLoading={setLoading} />
             <SportsCategories />
             <TopBrands />
             <ReviewsSection />

@@ -24,6 +24,9 @@ import EquepDetails from './pages/EquepDetails';
 import MyEquepment from './pages/MyEquepment';
 import UpdateEquep from './pages/UpdateEquep';
 import { RedirectRoute } from './pages/RedirectRoute';
+import { CategoryPage } from './pages/CategoryPage';
+import Profile from './pages/Profile';
+import AboutUs from './pages/About';
 
 function App() {
 
@@ -45,9 +48,9 @@ function App() {
         {
           path: "details/:id",
           element: (
-            <ProtectedRoute>
+            // <ProtectedRoute>
               <Details />
-            </ProtectedRoute>
+            // </ProtectedRoute>
           ),
         },
         {
@@ -71,9 +74,9 @@ function App() {
         {
           path: "equipment/:id",
           element: (
-            <ProtectedRoute>
+            // <ProtectedRoute>
               <EquepDetails />
-            </ProtectedRoute>
+            // </ProtectedRoute>
           ),
         },
 
@@ -94,6 +97,37 @@ function App() {
               <UpdateEquipment />
             </ProtectedRoute>
 
+          ),
+        },
+        {
+          path: "sport/:cat",
+          element: (
+            
+              <CategoryPage />
+           
+
+          ),
+        },
+        {
+          path: "cart",
+          element: (
+            <ProtectedRoute>
+              <CartPage />
+            </ProtectedRoute>
+          ),
+        },
+        {
+          path: "profile",
+          element: (
+            <ProtectedRoute>
+              <Profile />
+            </ProtectedRoute>
+          ),
+        },
+        {
+          path: "about",
+          element: (
+              <AboutUs />
           ),
         },
         {

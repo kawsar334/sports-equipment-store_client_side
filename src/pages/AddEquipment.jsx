@@ -69,10 +69,10 @@ const AddEquipmentPage = () => {
         <div className=" mx-auto py-10  w-full   ">
             <div className="w-[70%] m-auto flex justify-center items-center flex-col">
                 <h2 className="text-3xl font-bold text-center mb-6">Add New Equipment</h2>
-                <div className="flex justify-between w-full md:w-[80%]  my-6 flex-col md:flex-row capitalize py-2 px-5  border-b">
+                {/* <div className="flex justify-between w-full md:w-[80%]  my-6 flex-col md:flex-row capitalize py-2 px-5  border-b">
                     <p><span className="font-bold">UserName:</span>{user?.displayName}</p>
                     <p><span className="font-bold">Email:</span>{user?.email}</p>
-                </div>
+                </div> */}
             </div>
             {formData?.image && (
                 <div className="w-full md:w-[80%] mx-auto  flex justify-center items-center">

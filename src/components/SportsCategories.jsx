@@ -1,6 +1,11 @@
 
+
+
+
 import React, { useEffect, useState } from "react";
 import { Fade } from "react-awesome-reveal";
+import { NavLink } from "react-router-dom";
+import "./producs/component.css"
 const SportsCategories = () => {
     const [equipmentList, setEquipmentList] = useState([]);
     const [categories, setCategories] = useState([]);
@@ -10,11 +15,11 @@ const SportsCategories = () => {
             try {
                 const response = await fetch("https://server-with-auth.vercel.app/products");
                 const data = await response.json();
-
                 setEquipmentList(data);
                 const uniqueCategories = Array.from(
-                    new Map(data.map((item) => [item.categoryName, item.image])).entries()
-                ).map(([categoryName, image]) => ({ categoryName, image }));
+                    new Map(data.map((item) => [item.categoryName, item.image,])).entries()
+                ).map(([categoryName, image,]) => ({ categoryName, image, }));
+                console.log(categories)
 
                 setCategories(uniqueCategories);
             } catch (error) {
@@ -26,29 +31,29 @@ const SportsCategories = () => {
     }, []);
 
     return (
-        <section className="my-10 bg-base-200 p-10">
+        <section className="my-10 bg-base-200 p-10 w-full md:w-[95%] m-auto ">
             <Fade>
                 <h2 className="text-3xl font-bold text-center mb-6">Sports Categories</h2>
             </Fade>
-            <div className="flex flex-wrap justify-center gap-6">
-                {categories.map((category, index) => (
-                    <Fade key={index}>
-                        <div className="text-center">
+            <div className="flex flex-wrap justify-center gap-0  w-full  ">
+                {categories.slice(0,9).map((category, index) => (
+                    <NavLink to={`/sport/${category.categoryName}`} className="categoryContainer text-center  cursor-pointer border h-[200px] w-full md:w-[33%] relative   ">
                             <img
                                 src={category.image || "https://via.placeholder.com/150"}
                                 alt={category.categoryName}
-                                className="w-32 h-32 object-cover rounded-full mx-auto mb-3"
-                            />
-                            <span className="badge badge-lg badge-primary px-6 py-3 cursor-pointer bg-blue border-none text-[#161b1d]">
-                                {category.categoryName}
-                            </span>
-                        </div>
-                    </Fade>
+                                className="w-full h-full object-cover  mx-auto mb-3 categoryImage"
+                            />                   
+                            <div className=" transition-all duration-700  absolute top-0 left-0 h-full hover:opacity-50  w-full py-3 cursor-pointer hover:bg-black  text-blue flex justify-center items-center font-semibold flex-col ">
+                            <span>{category.categoryName}</span>
+                            <button className="border px-3 py-1 my-2 rounded opacity-0 categorybutton">See Now</button>
+                            </div>
+                    </NavLink>
                 ))}
-                
+
             </div>
         </section>
     );
 };
 
 export default SportsCategories;
+

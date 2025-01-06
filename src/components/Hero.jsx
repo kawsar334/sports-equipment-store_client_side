@@ -57,19 +57,19 @@ export const Hero = () => {
               <Fade>
 
                 <div
-                  className="relative w-full mx-auto h-[400px] bg-gray-200 "
+                  className="relative w-full mx-auto h-[450px] bg-gray-200 "
 
                 >
                   <img
                     src={slide?.image}
                     alt={slide?.itemName}
-                    className="w-full h-[400px] object-cover rounded-lg"
+                    className="w-full h-[450px] object-cover "
                   />
                   <div
-                    className=" absolute inset-0 flex items-start justify-start bg-black bg-opacity-50 p-4 rounded-lg"
+                    className=" absolute inset-0 flex items-start justify-start bg-black bg-opacity-40 p-4 "
 
                   >
-                    <div className="text-center text-white  w-[70%] m-auto flex justify-start items-center flex-col">
+                    <div className="text-center text-white  p-5  w-[70%] m-auto flex justify-start items-center flex-col">
                       <h2
                         className="font-semibold mb-2 text-4xl "
                         data-aos="fade-right"
@@ -95,6 +95,8 @@ export const Hero = () => {
                       </p>
                     </div>
                   </div>
+
+
                 </div>
               </Fade>
             </SwiperSlide>
@@ -104,5 +106,4 @@ export const Hero = () => {
     </div>
   );
 };
-
 

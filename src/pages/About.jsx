@@ -2,12 +2,12 @@ import React from 'react';
 
 function AboutUs() {
     return (
-        <section className="bg-blue  py-16">
+        <section className="   py-16">
             <div className="container mx-auto px-6 md:px-12 lg:px-24 text-center">
-                <h2 className="text-3xl md:text-4xl font-bold text-[lightgray] mb-6">
+                <h2 className="text-3xl md:text-4xl font-bold  mb-6">
                     About Us
                 </h2>
-                <p className="text-lg text-[lightgray] mb-8 max-w-2xl mx-auto">
+                <p className="text-lg  mb-8 max-w-2xl mx-auto">
                     Welcome to <span className="font-semibold">YourShop</span>, where we believe in delivering high-quality products with exceptional customer service. We’re passionate about providing you with a seamless shopping experience.
                 </p>
 

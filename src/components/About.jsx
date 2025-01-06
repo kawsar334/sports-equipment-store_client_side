@@ -1,6 +1,8 @@
 import React from "react";
 import { Fade } from "react-awesome-reveal";
 const AboutUs = () => {
+
+    
     const teamMembers = [
         {
             id: 1,
@@ -47,7 +49,7 @@ const AboutUs = () => {
     ];
 
     return (
-        <div className="bg-bgcolor text-blue py-10">
+        <div className=" text-blue py-10">
             <div className="container mx-auto">
                 <h2 className="text-3xl font-bold text-center mb-8"><Fade>About Us</Fade></h2>
                 <p className="text-center mb-10 text-blue">

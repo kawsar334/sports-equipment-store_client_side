@@ -1,17 +1,20 @@
 
+
+
 import React, { useContext, useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import { Fade } from "react-awesome-reveal";
 import { Tooltip as ReactTooltip } from "react-tooltip";
 import App from "../Sidebar";
 import { ThemeContext } from "../../ThemeProvider";
+import "./component.css"
 
-const ProductSection = () => {
+const ProductSection = ({ loading , setLoading}) => {
   const { isDarkMode } = useContext(ThemeContext);
   const [equipmentList, setEquipmentList] = useState([]);
   const [categories, setCategories] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState("All");
-  const [loading, setLoading] = useState(true);
+  // const [loading, setLoading] = useState(true);
   const [isAscending, setIsAscending] = useState(true);
 
   useEffect(() => {
@@ -43,7 +46,6 @@ const ProductSection = () => {
       ? equipmentList
       : equipmentList.filter(item => item.categoryName === selectedCategory);
 
-      console.log(equipmentList)
   const handleSort = () => {
     const sortedList = [...equipmentList].sort((a, b) => {
       const priceA = a.price;
@@ -66,11 +68,11 @@ const ProductSection = () => {
 
   return (
     <section
-      className={`${isDarkMode ? "w-full p-2 md:p-5 bg-bgcolor text-white" : "w-full p-2 md:p-5 bg-white text-bgcolor"}`}
+      className={`${isDarkMode ? "w-full p-2 md:p-5 bg-bgcolor text-white" : "w-full p-2 md:p-5 bg-gray-100 text-bgcolor"}`}
       id="product"
     >
       <Fade>
-        <div className="flex justify-between items-center w-full flex-col md:flex-row lg:w-[50%] m-auto mb-6 py-4 px-3 rounded-full gap-3">
+        {/* <div className="flex justify-between items-center w-full flex-col md:flex-row lg:w-[50%] m-auto mb-6 py-4 px-3 rounded-full gap-3">
           <h2 className="text-3xl font-bold text-center">Featured Products</h2>
           <button
             className="border py-1 px-3 rounded-full bg-blue text-bgcolor "
@@ -78,6 +80,14 @@ const ProductSection = () => {
           >
             {isAscending ? "Sort by Price (High to Low)" : "Sort by Price (Low to High)"}
           </button>
+        </div> */}
+        <div className="flex justify-between items-center w-full flex-col md:flex-row lg:w-[50%] m-auto mb-6 py-4 px-3 rounded-full gap-3">
+          <h2 className="text-3xl font-bold text-center">Featured Products</h2>
+          <select name="" id="" className="rounded-lg p-3">
+            <option value="true" onClick={handleSort}>
+              Sort by Price</option>
+            <option value="true" onClick={handleSort}>{isAscending ? " (High to Low)" : " (Low to High)"}</option>
+          </select>
         </div>
       </Fade>
 
@@ -86,7 +96,7 @@ const ProductSection = () => {
           {categories.map((category, index) => (
             <li
               key={index}
-              className={`border py-1 px-3 rounded-full cursor-pointer ${selectedCategory === category ? "bg-blue text-bgcolor" : ""
+              className={`border py-1 px-3 rounded-full cursor-pointer ${selectedCategory === category ? "bg-blue text-bgcolor" : "bg-white text-bgcolor"
                 }`}
               onClick={() => handleCategoryChange(category)}
             >
@@ -94,40 +104,46 @@ const ProductSection = () => {
             </li>
           ))}
         </ul>
-        <div className="flex justify-center items-center gap-5 flex-wrap w-full md:w-[95%] lg:w-[75%]">
-          {filteredEquipmentList?.slice(0, 6).map(product => (
+        {/*  */}
+        <div className="flex  justify-center items-center gap-[2px] flex-wrap w-full md:w-[95%] lg:w-[95%]">
+          {filteredEquipmentList?.slice(0, 12).map(product => (
             <div
               key={product._id}
-              className={`${isDarkMode
-                  ? "card bg-white shadow-xl w-[97%] md:w-[45%] lg:w-[30%] text-bgcolor p-3 cursor-pointer  "
-                  : "card bg-base-200 shadow-xl w-[97%] md:w-[45%] lg:w-[30%] p-3 cursor-pointer "
+              className={` parrent rounded relative border overflow-hidden  h-[300px] ${isDarkMode
+                ? "mb-1 bg-white hover:shadow-lg w-[97%] md:w-[45%] lg:w-[23%] text-bgcolor  cursor-pointer  "
+                : "mb-1 bg-white hover:shadow-lg w-[97%] md:w-[45%] lg:w-[23%]  cursor-pointer "
                 }`}
               data-tooltip-id={"product" + product?._id}
               data-tooltip-content={product?.description}
             >
               <ReactTooltip id={"product" + product?._id} className="z-20" />
               <Fade>
+                <div className="w-full h-[170px] p-3 flex justify-center items-center overflow-hidden ">
+
                 <img
                   src={product.image}
                   alt={product.itemName}
-                  className="w-full h-48 object-cover rounded"
-                />
+                    className="w-[60%] h-full  object-cover transform transition-all  duration-1000 hover:w-full hover:scale-150"
+                  />
+                  </div>
               </Fade>
               <div className="p-4">
-                <h3 className="text-xl font-semibold">
+                {/* <h3 className="text-xl font-semibold">
                   <Fade>{product.itemName}</Fade>
-                </h3>
+                </h3> */}
                 <Fade>
-                  <p className="text-gray-600">${product.price}</p>
+                  <p className="text-gray-700">{product?.description.slice(0, 20)}...</p>
                 </Fade>
                 <Fade>
-                  <p className="text-gray-700">{product?.description.slice(0, 40)}...</p>
+                  <p className="text-blue">${product.price}</p>
                 </Fade>
+               
                 <Fade>
-                  <div className="my-3">
+                  <div className="transform translate-y-[70px] child">
+                    {/* left-0 w-full h-full bg-bgcolor absolute top-0 opacity-50 */}
                     <NavLink
                       to={`/details/${product._id}`}
-                      className="py-1 px-3 bg-blue text-bgcolor rounded-full"
+                      className="py-1 px-3 bg-blue transition-all duration-200 text-bgcolor hover:bg-transparent  hover:border-blue border rounded-full"
                     >
                       View Details
                     </NavLink>
@@ -142,6 +158,7 @@ const ProductSection = () => {
             </p>
           )}
         </div>
+        {/*  */}
       </div>
     </section>
   );

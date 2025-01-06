@@ -5,6 +5,7 @@ import { Fade } from "react-awesome-reveal";
 import App from "../components/Sidebar";
 import { Tooltip as ReactTooltip } from 'react-tooltip'
 import { ThemeContext } from "../ThemeProvider";
+
 const AllSportsEquipmentPage = () => {
     const { isDarkMode, toggleTheme } = useContext(ThemeContext);
     const [equipmentList, setEquipmentList] = useState([]);
@@ -13,20 +14,20 @@ const AllSportsEquipmentPage = () => {
     const { user } = useContext(AuthContext)
     useEffect(() => {
         setLoading(true)
-       setTimeout(() => {
-           const fetchEquipment = async () => {
-               try {
-                   const response = await fetch(`https://server-with-auth.vercel.app/allproducts/`);
-                   const data = await response.json()
-                   setEquipmentList(data);
-                   setLoading(false)
-               } catch (error) {
-                   console.error("Error fetching equipment data:", error);
-               }
-           };
+        setTimeout(() => {
+            const fetchEquipment = async () => {
+                try {
+                    const response = await fetch(`https://server-with-auth.vercel.app/allproducts/`);
+                    const data = await response.json()
+                    setEquipmentList(data);
+                    setLoading(false)
+                } catch (error) {
+                    console.error("Error fetching equipment data:", error);
+                }
+            };
 
-           fetchEquipment();
-       }, 2000);
+            fetchEquipment();
+        }, 2000);
     }, []);
 
     const handleViewDetails = (id) => {
@@ -47,17 +48,21 @@ const AllSportsEquipmentPage = () => {
             <div className="flex justify-between items-center w-[80%] m-auto flex-col md:flex-row">
                 <h2 className="text-3xl font-bold text-center mb-6">
                     <Fade>All Sports Equipment</Fade>
-                    </h2>
+
+                </h2>
                 <div className=" text-center mb-6">
                     <Fade>
-                    <button className="border rounded-full px-4 py-1 hover:text-blue hover:bg-transparent bg-blue transition-all text-white capitalize" onClick={handlShort}>sort by Price (High to Low) </button>
+                        <select className="border rounded px-4 py-1 bg-bgcolor  text-white  transition-all  capitalize" >
+                            <option  selected disabled> sort by Price </option>
+                            <option value="" onClick={handlShort}>(High to Low)</option>
+                             </select>
                     </Fade>
                 </div>
 
             </div>
-            {loading?<div className="w-full h-[70vh]  flex justify-center  items-center">
-                    <App/>
-            </div>:<div className="overflow-x-auto">
+            {loading ? <div className="w-full h-[70vh]  flex justify-center  items-center">
+                <App />
+            </div> : <div className="overflow-x-auto">
                 <table className="table table-zebra w-full">
 
                     <thead>
@@ -79,22 +84,23 @@ const AllSportsEquipmentPage = () => {
                     <tbody >
                         <ReactTooltip id="my-tooltip" />
                         {equipmentList?.map((equipment, index) => (
-                            <tr key={equipment._id} className={`${isDarkMode?"bg-bgcolor text-white":"bg-white text-bgcolor"}`} data-tooltip-id="my-tooltip" data-tooltip-content={equipment?.itemName}>
+                            <tr key={equipment._id} className={`${isDarkMode ? "bg-bgcolor text-white" : "bg-white text-bgcolor"}`} data-tooltip-id="my-tooltip" data-tooltip-content={equipment?.itemName}>
                                 <td ><Fade>{index + 1}</Fade></td>
                                 <th><img src={equipment?.image} alt="" className="w-[25px] h-[25px] rounded-full" /></th>
-                                <td>{equipment?.itemName} </td>                              
+                                <td>{equipment?.itemName} </td>
                                 <td><Fade>{equipment.categoryName}</Fade></td>
                                 <td>${equipment?.price}</td>
-                                {/*  */}
                                 <td>
                                     <Fade>
-                                    <button
-                                        onClick={() => handleViewDetails(equipment._id)}
-                                        className="btn btn-primary btn-sm"
+                                        <button
+                                            onClick={() => handleViewDetails(equipment._id)}
+                                            className="btn bg-blue btn-sm text-white"
                                         >
-                                        View Details
-                                    </button>
-                                </Fade>
+                                            <i className="fas fa-info-circle"></i>
+                                            View Details
+
+                                        </button>
+                                    </Fade>
                                 </td>
                             </tr>
                         ))}

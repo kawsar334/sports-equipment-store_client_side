@@ -9,20 +9,21 @@ import { ThemeContext } from "../ThemeProvider";
 const Navbar = () => {
   const { createUser, user, signOutUser } = useContext(AuthContext)
   const { isDarkMode, toggleTheme } = useContext(ThemeContext);
-
+  const item = JSON.parse(localStorage.getItem("cart"));
 
   return (
     <div className={`${isDarkMode ? "navbar bg-[#161b1d] text-[white] shadow-lg sticky top-0 left-0 z-20" : "navbar bg-[white] text-[#161b1d] shadow-lg sticky top-0 left-0 z-20"}`}>
-      <div className="navbar-start">
-        <Link to="/" className="btn btn-ghost normal-case text-xl">
+      <div className="navbar-start ">
+        <Link to="/" className="btn btn-ghost hover:bg-transparent normal-case text-xl ">
         <Fade>
-          EquiSports
+            <span className="text-blue text-2xl">Sports</span> <span>Equipment</span>
+            {/* <img src="https://landing.engotheme.com/shopify/spotie/assets/images/logo_white.png" className="w-[160px] h-[50px] bg-blue" alt="" /> */}
         </Fade>
         </Link>
       </div>
 
       <div className="navbar-center hidden lg:flex">
-        <ul className="menu menu-horizontal px-1">
+        <ul className="menu menu-horizontal space-x-3 px-1">
           <li>
             <NavLink to="/" className={({ isActive }) => isActive ? "bg-blue text-[#161b1d]" : undefined}>
             <Fade>
@@ -33,8 +34,15 @@ const Navbar = () => {
           <li>
             <NavLink to="/equipment" className={({ isActive }) => isActive ? "bg-blue text-[#161b1d]" : undefined}>
             <Fade>
-              All Sports Equipment
+              Products
             </Fade>
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to="/about" className={({ isActive }) => isActive ? "bg-blue text-[#161b1d]" : undefined}>
+              <Fade>
+                About us
+              </Fade>
             </NavLink>
           </li>
           {user && (
@@ -70,25 +78,11 @@ const Navbar = () => {
         
         <button
           onClick={toggleTheme}
-          className="border border-blue rounded-full mr-6 px-2 capitalize flex justify-center items-center gap-0 md:gap-2 "
+          className="text-2xl border rounded-full text-blue  mr-6 px-2 capitalize flex justify-center items-center gap-0 md:gap-2 "
           aria-label="Toggle Theme"
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            className="h-4 w-4"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
-              d="M12 3v2m0 14v2m8.364-8.364l-1.414 1.414m-14.142 0l-1.414-1.414M21 12h-2M5 12H3m16.364-8.364l-1.414 1.414M5.05 5.05l-1.414 1.414"
-            />
-          </svg>
-          <span className="">
-            {!isDarkMode ?"Dark":"Light"}
+        >       
+            <span className="">
+            {!isDarkMode ? <i className="fas fa-moon"></i> : <i className="fas fa-sun"></i>}
           </span>
         </button>
 
@@ -97,7 +91,7 @@ const Navbar = () => {
             <Fade>
 
             <div>
-              <NavLink data-tooltip-id="my-tooltip" className="cursor-pointer" data-tooltip-content={user?.displayName}>
+              <NavLink to="/profile" data-tooltip-id="my-tooltip" className="cursor-pointer" data-tooltip-content={user?.displayName}>
                 <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
                   <div className="w-10 rounded-full">
                     <img src={user?.photoURL || "https://via.placeholder.com/150"} alt="User" />
@@ -151,8 +145,9 @@ const Navbar = () => {
           <li>
             <NavLink to="/">Home</NavLink>
           </li>
+          
           <li>
-            <NavLink to="/equipment">All Sports Equipment</NavLink>
+            <NavLink to="/equipment">Sports Equipments</NavLink>
           </li>
           {user && (
             <>
@@ -160,13 +155,16 @@ const Navbar = () => {
                 <NavLink to="/create">Add Equipment</NavLink>
               </li>
               <li>
-                <NavLink to="/myequipment">My Equipment List</NavLink>
+                <NavLink to="/myequipment">My Equipments </NavLink>
               </li>
+               
               <li>
                 <button className="bg-blue  hover:bg-blue text-red-300 font-bold" onClick={() => signOutUser()}>
                   Log Out
                 </button>
               </li>
+
+              
             </>
           )}
         </ul>

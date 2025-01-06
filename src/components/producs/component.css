@@ -1,0 +1,39 @@
+
+
+
+.parrent:hover .child{
+        transform: translateY(20px);
+        /* transform: translateX(40px); */
+
+}
+
+.child{
+    transition: all 1s ease ;
+}
+.child:hover{
+    
+}
+
+/* category section  */
+
+.categoryContainer{
+    overflow: hidden;
+
+    
+}
+.categoryContainer:hover .categoryImage{
+    transform: scale(1.7);
+
+}
+.categoryContainer:hover .categorybutton{
+    opacity: 1;
+}
+.categorybutton:hover{
+    transform: scale(1.2);
+    transition: all 0.5s ease;
+    
+}
+.categoryImage{
+    transition: all 1s ease;
+
+}

@@ -206,7 +206,7 @@ const UpdateEquipment = () => {
                         <input
                             type="text"
                             name="userEmail"
-                            value={ state?.equipment?.username}
+                            value={ state?.equipment?.email}
                             readOnly
                             className="bg-transparent p-3 border-b border-blue focus:border focus:rounded-lg focus:outline-none"
                         />
@@ -225,7 +225,7 @@ const UpdateEquipment = () => {
                 </div>
 
                 <div className="flex justify-center mt-6">
-                    <button type="submit" className="btn btn-primary">
+                    <button type="submit" className="btn bg-blue">
                         Update Equipment
                     </button>
                 </div>
