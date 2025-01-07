@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import { Fade } from "react-awesome-reveal";
 import { Tooltip as ReactTooltip } from "react-tooltip";
 import { ThemeContext } from "./ThemeProvider";
+import Title from "./components/Title";
 
 const UpcomingEvents = () => {
     const { isDarkMode, toggleTheme } = useContext(ThemeContext);
@@ -35,11 +36,12 @@ const UpcomingEvents = () => {
 
     return (
         <div className="events-section px-4 py-8">
-            <h2 className="text-2xl font-bold text-center mb-6">Upcoming Sports Events</h2>
+            <Title title="Upcoming Sports Events"/>
             <Fade>
                 <div className="event-cards grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                     {events.map((event) => (
                         <div
+                            data-aos="zoom-in-down"
                             data-tooltip-content={event.name}
                             data-tooltip-id={`event-tooltip-${event.id}`} 
                             key={event.id}

@@ -34,17 +34,17 @@ const Navbar = () => {
           <li>
             <NavLink to="/equipment" className={({ isActive }) => isActive ? "bg-blue text-[#161b1d]" : undefined}>
             <Fade>
-              Products
+              Equepments
             </Fade>
             </NavLink>
           </li>
-          <li>
+          {!user&&<li>
             <NavLink to="/about" className={({ isActive }) => isActive ? "bg-blue text-[#161b1d]" : undefined}>
               <Fade>
                 About us
               </Fade>
             </NavLink>
-          </li>
+          </li>}
           {user && (
             <>
               <li>
@@ -59,9 +59,8 @@ const Navbar = () => {
                 <Fade>
 
                   <NavLink to="/myequipment" className={({ isActive }) => isActive ? "bg-blue   text-white" : undefined}>
-                  My Equipment List
+                  My Equipments
                 </NavLink>
-                 
                 </Fade>
               </li>
               <li>
@@ -78,7 +77,7 @@ const Navbar = () => {
         
         <button
           onClick={toggleTheme}
-          className="text-2xl border rounded-full text-blue  mr-6 px-2 capitalize flex justify-center items-center gap-0 md:gap-2 "
+          className={`text-2xl border rounded-full ${isDarkMode?"text-white":"text-bgcolor"}  mr-6 px-2 capitalize flex justify-center items-center gap-0 md:gap-2`}
           aria-label="Toggle Theme"
         >       
             <span className="">

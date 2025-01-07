@@ -6,6 +6,7 @@ import { AuthContext } from "../context/AuthProviders";
 import Swal from 'sweetalert2';
 import App from '../components/Sidebar';
 import { ThemeContext } from '../ThemeProvider';
+import Title from '../components/Title';
 
 const MyEquipmentList = () => {
     const { user } = useContext(AuthContext);
@@ -99,18 +100,20 @@ const MyEquipmentList = () => {
     }
 
     return (
-        <div className="container mx-auto p-4">
+        <div className="container mx-auto p-4" data-aos="zoom-in-down">
             <div>
 
             {equipmentList?.length >1 &&<button onClick={handlShort} className="bg-blue text-white px-4 py-2 rounded-md mb-4">
                 Sort by Price (High to Low)
             </button>}
-            <h1 className="text-2xl font-bold text-center mb-4">My Equipment List</h1>
+                <Title title="My Equipment List"/>
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 w-[90%] md:w-[80%] m-auto">
                 {equipmentList.length > 0 ? (
                     equipmentList.map((item) => (
-                        <div key={item._id} className={`${isDarkMode ? "bg-white shadow-lg border rounded-lg p-4 text-bgcolor  " : "bg-white shadow-lg border rounded-lg p-4  "}`}>
+                        <div
+                            data-aos="zoom-in-down"
+                        key={item._id} className={`${isDarkMode ? "bg-white shadow-lg border rounded-lg p-4 text-bgcolor  " : "bg-white shadow-lg border rounded-lg p-4  "}`}>
                             <img
                                 src={item.image}
                                 alt={item.itemName}
@@ -119,7 +122,7 @@ const MyEquipmentList = () => {
                             <h2 className="text-xl font-semibold">{item.itemName}</h2>
                             <p className="text-gray-600">{item.categoryName}</p>
                             <p className="mt-2  w-[100%] text-gray-500 ">{item.description.slice(0, 50)}</p>
-                            <p className="font-semibold text-lg mt-2">Price: ${item.price}</p>
+                            <p className="font-semibold text-lg mt-2"> ${item.price}</p>
                             <div className="flex justify-between mt-4">
                                 <button
                                     onClick={() => handleUpdate(item)}

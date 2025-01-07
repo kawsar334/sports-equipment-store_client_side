@@ -2,7 +2,7 @@
 
 
 .parrent:hover .child{
-        transform: translateY(20px);
+        transform: translateY(10px);
         /* transform: translateX(40px); */
 
 }

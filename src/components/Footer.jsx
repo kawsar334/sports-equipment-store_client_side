@@ -10,7 +10,7 @@ export const Footer = () => {
         <Fade duration={1000}>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             {/* Website Name */}
-            <div className="mb-4 ">
+            <div className="mb-4 " data-aos="zoom-in-down">
               <h1 className="text-2xl font-bold "><span className="text-blue text-2xl">Sports</span> Equipment</h1>
               <p className="w-[250px] text-[gray]">Your one-stop shop for all sports equipment and accessories.</p>
               <div className="flex space-x-4">
@@ -32,7 +32,7 @@ export const Footer = () => {
             </div>
 
             {/* Contact Info */}
-            <div className="mb-4">
+            <div className="mb-4" data-aos="zoom-in-up">
               <h2 className="text-lg font-semibold mb-2">Contact Info</h2>
               <p>Email:kawsarfiroz11@gmail.com</p>
               <p>Phone: +966509325731</p>
@@ -40,7 +40,7 @@ export const Footer = () => {
               
             </div>
 
-            <div className="mb-4">
+            <div className="mb-4" data-aos="zoom-in-up">
               <h2 className="text-lg font-semibold mb-2">Follow Us</h2>
               <div className="flex space-x-4">
                 <a
@@ -80,10 +80,8 @@ export const Footer = () => {
             </div>
           </div>
         </Fade>
-
-        {/* Copyright Section */}
         <Fade duration={1000}>
-          <div className="mt-8 text-center border-t py-5">
+          <div className="mt-8 text-center border-t py-5" data-aos="zoom-in-down">
             <p>
               &copy; {new Date().getFullYear()} EquiSports. All rights reserved.
             </p>

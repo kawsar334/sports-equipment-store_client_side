@@ -1,5 +1,6 @@
 import React from "react";
 import { Fade } from "react-awesome-reveal";
+import Title from "./Title";
 const ReviewsSection = () => {
    
     const reviews = [
@@ -10,10 +11,12 @@ const ReviewsSection = () => {
 
     return (
         <section className="my-10 w-[90%]  mx-auto p-5">
-            <h2 className="text-3xl font-bold text-center mb-6"><Fade>What Our Customers Say</Fade></h2>
+            <Title title="What Our Customers Say"/>
             <div className="flex justify-center items-center flex-wrap flex-col md:flex-row gap-8">
                 {reviews.map((review) => (
-                    <div key={review.id} className="card bg-base-100 shadow-xl p-4 relative   w-[300px]">
+                    <div key={review.id} className="card bg-base-100 shadow-xl p-4 relative   w-[300px]"
+                        data-aos="zoom-in-down"
+                    >
                         <img src={review?.img} alt=""  className="absolute w-[80px] h-[80px]  border-[2px] border-blue  rounded-full object-cover top-[-10px] left-[-20px]"/>
                         <div className="w-[80%] mr-4 m-auto text-end  flex justify-center items-center flex-col">
                         <p className="mt-2 text-gray-600"><Fade>{review.review}</Fade></p>

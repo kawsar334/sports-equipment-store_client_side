@@ -8,6 +8,7 @@ import { getAuth, signInWithEmailAndPassword, signInWithPopup, GoogleAuthProvide
 import Swal from "sweetalert2";
 import { auth } from '../firebase';
 import imageOne from "../assets/first.svg"
+import Title from '../components/Title';
 
 function LoginPage() {
     const navigate = useNavigate()

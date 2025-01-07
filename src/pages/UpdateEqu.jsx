@@ -3,6 +3,7 @@ import {  useLocation, useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 import Swal from "sweetalert2";
 import { AuthContext } from "../context/AuthProviders";
+import Title from "../components/Title";
 
 const UpdateEquipment = () => {
     const { id } = useParams(); 
@@ -83,16 +84,16 @@ const UpdateEquipment = () => {
 
     return (
         <div className="container mx-auto p-6">
-            <h2 className="text-3xl font-bold text-center mb-6">Update Equipment</h2>
-            <div className="text-gray-600 text-sm flex justify-between w-[80%] flex-wrap gap-3  mx-auto">
+            <Title title="Update Equepment"/> 
+            {/* <div className="text-gray-600 text-sm flex justify-between w-[80%] flex-wrap gap-3  mx-auto">
                 <p className="border py-1 px-3 rounded-full cursor-pointer"> <span className="font-bold">Username</span>:{state?.equipment?.username || "Not Found"}</p>
                 <p className="border py-1 px-3 rounded-full cursor-pointer"><span className="font-bold">Email</span>:{state?.equipment?.email || "Not Found"}</p>
-            </div>
+            </div> */}
             {state?.photoURL}
 
-            <form onSubmit={handleSubmit} className="bg- my-10 p-6 rounded shadow-md">
+            <form  onSubmit={handleSubmit} className="bg- my-10 p-6 rounded shadow-md" data-aos="zoom-in-up">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div className="form-control">
+                    <div className="form-control" data-aos="zoom-in-up">
                         <label className="label">Image</label>
                         <input
                             type="text"
@@ -104,7 +105,7 @@ const UpdateEquipment = () => {
                         />
                     </div>
 
-                    <div className="form-control">
+                    <div className="form-control" data-aos="zoom-in-down">
                         <label className="label">Item Name</label>
                         <input
                             type="text"
@@ -117,7 +118,7 @@ const UpdateEquipment = () => {
                         />
                     </div>
 
-                    <div className="form-control">
+                    <div className="form-control" data-aos="zoom-in-down">
                         <label className="label">Category Name</label>
                         <input
                             type="text"
@@ -129,7 +130,7 @@ const UpdateEquipment = () => {
                         />
                     </div>
 
-                    <div className="form-control">
+                    <div className="form-control" data-aos="zoom-in-down">
                         <label className="label">Description</label>
                         <textarea
                             name="description"
@@ -140,7 +141,7 @@ const UpdateEquipment = () => {
                         />
                     </div>
 
-                    <div className="form-control">
+                    <div className="form-control" data-aos="zoom-in-down">
                         <label className="label">Price</label>
                         <input
                             type="number"
@@ -152,7 +153,7 @@ const UpdateEquipment = () => {
                         />
                     </div>
 
-                    <div className="form-control">
+                    <div className="form-control" data-aos="zoom-in-down">
                         <label className="label">Rating</label>
                         <input
                             type="number"
@@ -166,7 +167,7 @@ const UpdateEquipment = () => {
                         />
                     </div>
 
-                    <div className="form-control">
+                    <div className="form-control" data-aos="zoom-in-down">
                         <label className="label">Customization</label>
                         <input
                             type="text"
@@ -177,7 +178,7 @@ const UpdateEquipment = () => {
                         />
                     </div>
 
-                    <div className="form-control">
+                    <div className="form-control" data-aos="zoom-in-down">
                         <label className="label">Processing Time (Delivery Time)</label>
                         <input
                             type="text"
@@ -189,7 +190,7 @@ const UpdateEquipment = () => {
                         />
                     </div>
 
-                    <div className="form-control">
+                    <div className="form-control" data-aos="zoom-in-up">
                         <label className="label">Stock Status</label>
                         <input
                             type="number"
@@ -201,7 +202,7 @@ const UpdateEquipment = () => {
                         />
                     </div>
 
-                    <div className="form-control">
+                    <div className="form-control" data-aos="zoom-in-up">
                         <label className="label">User Email <span className="text-gray-400">Read Only</span></label>
                         <input
                             type="text"
@@ -212,7 +213,7 @@ const UpdateEquipment = () => {
                         />
                     </div>
 
-                    <div className="form-control">
+                    <div className="form-control" data-aos="zoom-in-up">
                         <label className="label">User Name <span className="text-gray-400">Read Only</span></label>
                         <input
                             type="text"
@@ -224,8 +225,8 @@ const UpdateEquipment = () => {
                     </div>
                 </div>
 
-                <div className="flex justify-center mt-6">
-                    <button type="submit" className="btn bg-blue">
+                <div className="flex justify-center mt-6" data-aos="zoom-in-up">
+                    <button type="submit" className="btn bg-blue border text-white">
                         Update Equipment
                     </button>
                 </div>

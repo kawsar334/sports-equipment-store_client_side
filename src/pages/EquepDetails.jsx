@@ -78,6 +78,7 @@ import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import App from "../components/Sidebar";
 import { toast } from "react-toastify";
+import Title from "../components/Title";
 
 const EquDetails = () => {
     const { id } = useParams();
@@ -137,11 +138,11 @@ const EquDetails = () => {
     }
 
     return (
-        <div className="container mx-auto py-10 px-6 ">
-            <h2 className="text-3xl font-bold text-center mb-6">{equipment?.itemName}</h2>
-            <div className="p-6 flex justify-between items-start">
-                <img src={equipment?.image} className="w-[45%] h-[300px] rounded object-cover mb-6" />
-                <div className="w-[50%]">
+        <div className="container mx-auto py-10 px-3 md:px-4 lg:px-6  " data-aos="zoom-in-up">
+            <Title title={equipment?.itemName} />
+            <div className="p-6 flex justify-between items-start flex-col md:flex-row">
+                <img src={equipment?.image} className="w-full md:w-[45%] h-[300px] rounded object-cover mb-6" data-aos="zoom-in-down" />
+                <div className="w-full md:w-[50%]" data-aos="zoom-in-up">
                     <p>{equipment?.categoryName}</p>
                     <p className="bg-blue text-white w-max rounded-full px-4 py-1"> ${equipment?.price} </p>
                     <p>

@@ -48,15 +48,16 @@ function App() {
         {
           path: "details/:id",
           element: (
-            // <ProtectedRoute>
+           
+            <PageTitle title="Equipment Details">
               <Details />
-            // </ProtectedRoute>
+            </PageTitle>
           ),
         },
         {
           path: "equipment",
           element: (
-            <PageTitle title="AllSports products">
+            <PageTitle title="All Sports products">
                 <AllSportsEquipmentPage />
             </PageTitle>
           ),
@@ -64,7 +65,7 @@ function App() {
         {
           path: "myequipment",
           element: (
-            <PageTitle title="AllSports products">
+            <PageTitle title="Your Equipments">
               <ProtectedRoute>
                 <MyEquepment />
               </ProtectedRoute>
@@ -75,7 +76,9 @@ function App() {
           path: "equipment/:id",
           element: (
             // <ProtectedRoute>
+            <PageTitle title="Product Details">
               <EquepDetails />
+            </PageTitle>
             // </ProtectedRoute>
           ),
         },
@@ -94,7 +97,9 @@ function App() {
           path: "update/:id",
           element: (
             <ProtectedRoute>
+              <PageTitle title="Update equipment">
               <UpdateEquipment />
+              </PageTitle>
             </ProtectedRoute>
 
           ),
@@ -102,9 +107,9 @@ function App() {
         {
           path: "sport/:cat",
           element: (
-            
+            <PageTitle title="equipment category">
               <CategoryPage />
-           
+            </PageTitle>            
 
           ),
         },
@@ -112,7 +117,9 @@ function App() {
           path: "cart",
           element: (
             <ProtectedRoute>
+              <PageTitle title="Your Cart">
               <CartPage />
+              </PageTitle>
             </ProtectedRoute>
           ),
         },
@@ -120,14 +127,18 @@ function App() {
           path: "profile",
           element: (
             <ProtectedRoute>
+              <PageTitle title="Profile">
               <Profile />
+              </PageTitle>
             </ProtectedRoute>
           ),
         },
         {
           path: "about",
           element: (
+            <PageTitle title="About Us">
               <AboutUs />
+            </PageTitle>
           ),
         },
         {

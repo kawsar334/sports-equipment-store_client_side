@@ -6,6 +6,7 @@ import React, { useEffect, useState } from "react";
 import { Fade } from "react-awesome-reveal";
 import { NavLink } from "react-router-dom";
 import "./producs/component.css"
+import Title from "./Title";
 const SportsCategories = () => {
     const [equipmentList, setEquipmentList] = useState([]);
     const [categories, setCategories] = useState([]);
@@ -33,11 +34,13 @@ const SportsCategories = () => {
     return (
         <section className="my-10 bg-base-200 p-10 w-full md:w-[95%] m-auto ">
             <Fade>
-                <h2 className="text-3xl font-bold text-center mb-6">Sports Categories</h2>
+                <Title title="Sports Categories"/>
             </Fade>
             <div className="flex flex-wrap justify-center gap-0  w-full  ">
                 {categories.slice(0,9).map((category, index) => (
-                    <NavLink to={`/sport/${category.categoryName}`} className="categoryContainer text-center  cursor-pointer border h-[200px] w-full md:w-[33%] relative   ">
+                    <NavLink to={`/sport/${category.categoryName}`} className="categoryContainer text-center  cursor-pointer border h-[200px] w-full md:w-[33%] relative   "
+                        data-aos="zoom-in-down"
+                    >
                             <img
                                 src={category.image || "https://via.placeholder.com/150"}
                                 alt={category.categoryName}

@@ -74,6 +74,7 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import { Navigation, Pagination, Autoplay } from 'swiper/modules';
+import Title from "./Title";
 
 const TopBrands = () => {
     const brands = [
@@ -172,9 +173,7 @@ const TopBrands = () => {
        
     return (
         <div className="brands-section px-4 py-8">
-            <h2 className="text-2xl font-bold text-center mb-6">
-                <Fade>Top Sports Brands</Fade>
-            </h2>
+            <Title title="Top Sports Brands" />
            <div className="hidden lg:flex">
                 <Swiper
                     modules={[Navigation, Pagination, Autoplay]}
@@ -188,6 +187,7 @@ const TopBrands = () => {
                     {brands.reverse().map((brand) => (
                         <SwiperSlide key={brand.id}>
                             <div
+                                data-aos="zoom-in-up"
                                 title={brand.id}
                                 data-tooltip-content={brand.name}
                                 data-tooltip-id={`brand-tooltip-${brand.id}`}
@@ -210,6 +210,7 @@ const TopBrands = () => {
            <div className="flex justify-center items-center flex-wrap lg:hidden gap-2 ">
                 {brands.reverse().map((brand) => (
                         <div
+                        data-aos="zoom-in-up"
                             title={brand.id}
                             data-tooltip-content={brand.name}
                             data-tooltip-id={`brand-tooltip-${brand.id}`}

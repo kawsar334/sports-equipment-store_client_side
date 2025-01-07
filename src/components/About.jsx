@@ -1,5 +1,6 @@
 import React from "react";
 import { Fade } from "react-awesome-reveal";
+import Title from "./Title";
 const AboutUs = () => {
 
     
@@ -49,15 +50,17 @@ const AboutUs = () => {
     ];
 
     return (
-        <div className=" text-blue py-10">
+        <div className="  py-10">
             <div className="container mx-auto">
-                <h2 className="text-3xl font-bold text-center mb-8"><Fade>About Us</Fade></h2>
-                <p className="text-center mb-10 text-blue">
+                <Title title="About Us"/>
+                <p className="text-center mb-10 " data-aos="zoom-in-up">
                     <Fade> Meet our team of professionals who are passionate about sports and technology.</Fade>
                 </p>
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div
+                 data-aos="zoom-in-down"
+                 className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                     {teamMembers.map((member) => (
-                        <div key={member.id} className="card bg-[white] text-blue shadow-md p-5 text-center">
+                        <div key={member.id} className="card bg-[white]  shadow-md p-5 text-center">
                             <Fade>
 
                             <img

@@ -5,6 +5,7 @@ import { auth } from "../../firebase";
 import { AuthContext } from "../../context/AuthProviders";
 import { toast } from "react-toastify";
 import { NavLink, useNavigate } from "react-router-dom";
+import Title from "../../components/Title";
 
 
 const Register = () => {
@@ -50,7 +51,9 @@ const navigate = useNavigate()
     return (
         <div className="flex justify-center items-center h-screen bg-transparent">
             <div className="w-full max-w-md p-8 space-y-3 rounded-xl  md:border   shadow-lg">
-                <h1 className="text-2xl font-bold text-center">Register</h1>
+                {/* <h1 className="text-2xl font-bold text-center">Register</h1> */}
+                <Title title="Register" />
+
                 <form onSubmit={handleSubmit} className="space-y-4">
                     <div>
                         <label htmlFor="name" className="block text-sm font-medium">

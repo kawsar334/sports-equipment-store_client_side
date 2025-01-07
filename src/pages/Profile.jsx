@@ -20,7 +20,7 @@ const ProfilePage = () => {
         )
     }
     return (
-        <div className="bg-gray-100 min-h-screen flex items-center justify-center">
+        <div className="bg-gray-100 min-h-screen flex items-center justify-center" data-aos="zoom-in-up">
             <div className="bg-white shadow-lg rounded-lg p-6 w-full max-w-lg">
                 <div className="flex flex-col items-center">
                     <img
@@ -33,7 +33,7 @@ const ProfilePage = () => {
                 </div>
 
                 {/* User Details */}
-                <div className="mt-6">
+                <div className="mt-6" data-aos="zoom-in-down">
                     <div className="mb-4">
                         <h3 className="text-lg font-semibold text-gray-700">Contact Info:</h3>
                         <p className="text-gray-600">
@@ -48,7 +48,7 @@ const ProfilePage = () => {
                     </div>
                 </div>
 
-                <div className="mt-6 text-center">
+                <div className="mt-6 text-center" data-aos="zoom-in-up">
                     <button className="bg-blue text-white px-6 py-2 rounded shadow hover:bg-blue-600">
                         Edit Profile
                     </button>

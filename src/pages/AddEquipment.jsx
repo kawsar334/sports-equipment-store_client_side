@@ -3,6 +3,7 @@ import { AuthContext } from "../context/AuthProviders";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
+import Title from "../components/Title";
 
 const AddEquipmentPage = () => {
     const { user } = useContext(AuthContext);
@@ -66,9 +67,9 @@ const AddEquipmentPage = () => {
     };
 
     return (
-        <div className=" mx-auto py-10  w-full   ">
+        <div className=" mx-auto py-10  w-full   " data-aos="zoom-in-up">
             <div className="w-[70%] m-auto flex justify-center items-center flex-col">
-                <h2 className="text-3xl font-bold text-center mb-6">Add New Equipment</h2>
+                <Title title="Add New Equipmen"/>
                 {/* <div className="flex justify-between w-full md:w-[80%]  my-6 flex-col md:flex-row capitalize py-2 px-5  border-b">
                     <p><span className="font-bold">UserName:</span>{user?.displayName}</p>
                     <p><span className="font-bold">Email:</span>{user?.email}</p>
@@ -83,7 +84,9 @@ const AddEquipmentPage = () => {
                     />
                 </div>
             )}
-            <form onSubmit={handleSubmit} className="flex justify-center  mx-auto items-center  p-4 w-[95%] md:w-[80%] space-y-6 flex-col ">
+            <form
+                data-aos="zoom-in-down"
+            onSubmit={handleSubmit} className="flex justify-center  mx-auto items-center  p-4 w-[95%] md:w-[80%] space-y-6 flex-col ">
              <div className="flex gap-2  m-auto  justify-center items-center   w-full  flex-col md:flex-row ">
                     <div className=" w-full md:w-[40%]">
                         <label className="block text-lg font-medium mb-2 ">Image URL</label>
